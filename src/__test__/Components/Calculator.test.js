@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Calculator from '../../Components/Calculator/Calculator';
  
@@ -51,7 +51,7 @@ describe('Calculator Component', () => {
     render(<Calculator />);
     fireEvent.change(screen.getByPlaceholderText('Enter numbers'), { target: { value: '//;\n1;2' } });
     fireEvent.click(screen.getByText('+'));
-    await waitFor (expect(screen.getByText('Result: 3')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByText('Result: 3')).toBeInTheDocument());
   });
 
   test('displays error message for negative numbers', () => {
