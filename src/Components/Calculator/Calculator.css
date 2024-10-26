@@ -1,32 +1,47 @@
-.mainContainer{
+.calculatorMain{
     /* width: 50%; */
     /* margin: 0 auto; */
     padding: 10px;
     border: 1px solid #a7a7a7;
     border-radius: 5px;
-    position: relative;
+    position: relative; 
+  margin: 0 auto;
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
+  padding: 10px;
+  background: rgb(2,0,36); 
+  width: 40%;
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,77,121,0.8828781512605042) 39%, rgba(0,212,255,1) 100%);
 }
 .inputDiv{
-    width: 100%;
-    /* position: absolute;
-    top: 0;
-    left: 0; */
+    width: 100%; 
 }
 .btnDiv{
     width: 100%;
     display: flex;
     justify-content: space-around;
     margin: 10px 0;
-}
-.calculatorMain{
-    width: 100%;
-}
+} 
 .calculatorMain input{
     width: 95%;
     padding: 10px;
     border-radius: 5px;
     outline: none;
     border: 1px solid #00741a;
+}
+.headingCal {
+  font-size: 1.3rem;
+  display: block;
+  margin: 10px 0;
+  color: #fff;
+  font-weight: 500;
+}
+.resultVal{
+    font-size: 1.3rem;
+    display: block;
+    margin: 10px 0;
+    color: #02fb76;
+    font-weight: 500;
 }
 .calculatorMain button{
     padding: 10px;

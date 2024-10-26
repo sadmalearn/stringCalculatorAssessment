@@ -1,12 +1,8 @@
-.App { 
+.App {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
-  margin: 0 auto;
-  border: 1px solid #a7a7a7;
-  border-radius: 5px;
-  padding: 10px;
+  height: 100vh;
 }
 /* 
 .App-logo {

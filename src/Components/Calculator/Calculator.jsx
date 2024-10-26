@@ -5,7 +5,7 @@ function Calculator() {
   const [result, setResult] = useState(null);
   const [error, setError] = useState("");
 
-  const add = (numbers, role) => {
+  const calculate = (numbers, role) => {
     if (!numbers) return 0;
 
     let delimiter = ",";
@@ -18,7 +18,7 @@ function Calculator() {
     const delimitersPattern = new RegExp(`[${delimiter}]|\\n`);
     const tokens = numbers.split(delimitersPattern);
 
-    let sum = role == "mult" ? 1 : 0;
+    let sum = role == "mult" || role == "div" ? 1 : 0;
     const negatives = [];
     tokens.forEach((token) => {
       if (token) {
@@ -31,6 +31,8 @@ function Calculator() {
           sum -= num;
         } else if (role == "mult") {
           sum = sum * num;
+        }else if (role === "div") {
+          sum = sum === 0 ? num : sum / num;
         }
       }
     });
@@ -45,7 +47,7 @@ function Calculator() {
   const handleCalculate = (role) => {
     try {
       setError("");
-      const sum = add(input, role);
+      const sum = calculate(input, role);
       setResult(sum);
     } catch (err) {
       setError(err.message);
@@ -55,7 +57,7 @@ function Calculator() {
 
   return (
     <div className="calculatorMain">
-        <span>Calculator</span>
+        <span className="headingCal">Calculator</span>
       <div className="inputDiv">
         <input
           type="text"
@@ -86,9 +88,16 @@ function Calculator() {
         >
           *
         </button>
+        <button
+          onClick={() => {
+            handleCalculate("div");
+          }}
+        >
+          /
+        </button>
       </div> 
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {result !== null && !error && <p>Result: {result}</p>}
+      {result !== null && !error && <p className="resultVal">Result: {result}</p>}
     </div>
   );
 }
