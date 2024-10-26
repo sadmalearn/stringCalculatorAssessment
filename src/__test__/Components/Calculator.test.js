@@ -47,11 +47,11 @@ describe('Calculator Component', () => {
     // expect(screen.getByText('Result: 6')).toBeInTheDocument();
   });
 
-  test('handles custom delimiter', () => {
+  test('handles custom delimiter', async() => {
     render(<Calculator />);
     fireEvent.change(screen.getByPlaceholderText('Enter numbers'), { target: { value: '//;\n1;2' } });
     fireEvent.click(screen.getByText('+'));
-    // expect(screen.getByText('Result: 3')).toBeInTheDocument();
+    await waitFor (expect(screen.getByText('Result: 3')).toBeInTheDocument())
   });
 
   test('displays error message for negative numbers', () => {

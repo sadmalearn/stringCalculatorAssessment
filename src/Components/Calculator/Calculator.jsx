@@ -1,4 +1,3 @@
-// Calculator.js
 import React, { useState } from "react";
 import './Calculator.css'
 function Calculator() {
@@ -16,7 +15,7 @@ function Calculator() {
       numbers = parts[1];
     }
 
-    const delimitersPattern = new RegExp(`[${delimiter}\n]+`);
+    const delimitersPattern = new RegExp(`[${delimiter}]|\\n`);
     const tokens = numbers.split(delimitersPattern);
 
     let sum = role == "mult" ? 1 : 0;
@@ -37,7 +36,7 @@ function Calculator() {
     });
 
     if (negatives.length) {
-      throw new Error(`Negative numbers not allowed: ${negatives.join(", ")}`);
+     setError(`Negative numbers not allowed: ${negatives.join(", ")}`);
     }
 
     return sum;
