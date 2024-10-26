@@ -86,13 +86,13 @@ function Calculator() {
         >
           *
         </button>
-      </div>
+      </div> 
       {error && <p style={{ color: "red" }}>{error}</p>}
       {result !== null && !error && <p> {result}</p>}
     </div>
   );
 }
 
-export default Calculator;
+export default Calculator; 
 
 
