@@ -88,11 +88,11 @@ function Calculator() {
         </button>
       </div> 
       {error && <p style={{ color: "red" }}>{error}</p>}
-      {result !== null && !error && <p> {result}</p>}
+      {result !== null && !error && <p>Result: {result}</p>}
     </div>
   );
 }
 
-export default Calculator; 
+export default Calculator;
 
 
